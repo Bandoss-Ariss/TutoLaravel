@@ -8,6 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Posts</title>
 </head>
+<style>
+.link-white {
+  color: white;
+  text-decoration:none;
+}
+</style>
 <body>
     <div class="container" >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,31 +47,15 @@
           </ul>
           
         </div>
-      </nav>
- 
-      <h1 class="text-center">Liste des publications</h1>
-    <table class="table table-striped mt-5">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Auteur</th>
-            <th scope="col">Contenu</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for ($i = 0; $i < $count; $i++)
-            <tr>
-                <td>{{$posts[$i]->id}}</td>
-                <td>{{$posts[$i]->title}}</td>
-                <td>{{$posts[$i]->author}}</td>
-                <td>{{$posts[$i]->content}}</td>
-                <td>{{$posts[$i]->date}}</td>
-            </tr>
-          @endfor
-        </tbody>
-      </table>
-    </div>
+      </nav>  
+      
+      @if (session('error'))
+      <div class="alert alert-danger">{{session('error') }}</div>
+      @endif
+      @if (session('success'))
+      <div class="alert alert-success">{{session('success') }}</div>
+      @endif
+    @yield('content')
+       </div>
 </body>
 </html>
