@@ -7,6 +7,6 @@
 @endphp
  <h6>Publié par: {{ $post->author }} le {{ date('Y-m-d',$date) }}</h6>
  <p class='text-center'> {{ $post->content }}</p>
-
+<h6>Nouvelle branche </h6>
 
 @endsection
